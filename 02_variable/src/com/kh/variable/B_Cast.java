@@ -63,6 +63,33 @@ public class B_Cast {
 		byte b3 = (byte)(b1 + b2);// 강제형변환
 	}
 	
+	public void forceCasting() {
+		
+		// 1. double -> int
+		double d1 = 10.89;
+		int i1 = (int) d1; // 10.89 -> 10
+		System.out.println("i1 : "+i1);
+		
+		// 2. double(대표자료형) -> float
+		float f1 = (float) 4.0;
+		float f2 = 4.0f;
+		float f3 = (float) d1;
+		
+		int iNum = 10;
+		double dNum = 5.89;
+		
+		int iSum = iNum + (int) dNum; 
+		
+		int iSum2 = (int)(iNum + dNum); 
+		// iNum = 10 
+		// dNum = 5.89
+		// 덧셈 연산 시
+		// iNum = 10.0 
+		// dNum = 5.89
+		// iNum+dNUM = 15.89
+		// 강제형변환시 => (int) 15.89 ==> 15
+	}
+	
 	
 }
 
