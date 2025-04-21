@@ -21,7 +21,8 @@ public class VariablePractice1 {
 		double height = sc.nextDouble();
 		
 		//printf문을 사용하여 출력문 완성하기
-		System.out.printf("키 180.5cm인 20살 남자 아무개님 반갑습니다^^");
+		System.out.printf("키 %.1fcm인 %d살 %c자 %s님 반갑습니다^^"
+				,height,age,gender,name);
 	}
 	
 	
