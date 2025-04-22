@@ -8,7 +8,9 @@ public class Run {
 		//bl.method2();
 		//bl.method4();
 		C_InDecrease ci = new C_InDecrease();
-		ci.method1();
+		//ci.method1();
+		G_Triple gt = new G_Triple();
+		gt.method2();
 	}
 	
 	

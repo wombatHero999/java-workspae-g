@@ -14,6 +14,8 @@ public class E_LogicalNegation {
 		boolean b2= !b; //false
 		
 		// 논리 부정 연산자는 조건식,계산식의 결과를 반대로 만들 때 사용
+		// 나이가 19세 이상, 30세 미만이 아닌 사람 찾기
+		// !(age >= 19 && age < 30)
 		boolean b3 = !(5 > 3);
 	}
 	

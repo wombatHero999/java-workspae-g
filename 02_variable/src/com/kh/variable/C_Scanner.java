@@ -21,7 +21,7 @@ public class C_Scanner {
 		System.out.print("당신의 나이는 몇 살 입니까 : ");
 		int age = sc.nextInt(); // 입력버퍼에 있는 다음값을 Int자료형으로 뽑아쓰겠다.
 		
-		sc.nextLine();// 버퍼의 남은 엔터값 비워주기
+		sc.nextLine(); // 버퍼의 남은 엔터값 비워주기
 		
 		System.out.print("당신의 주소는 : ");
 		// 사용자의 입력값에 공백이 포함될 여지가 있는 경우, 반드시 nextLine()을 쓴다.
