@@ -56,7 +56,6 @@ public class B_While {
 	 *  */
 	public void method4() {
 		do {
-			
 			System.out.println("하이");	
 			
 		} while(false);	

@@ -1,5 +1,7 @@
 package com.kh.array;
 
+import java.util.Arrays;
+
 public class A_Array {
 	/*
 	 * 변수 : 하나의 공간에 하나의 값을 담을 수 있다.
@@ -69,6 +71,102 @@ public class A_Array {
 		int [] iArr3 = iArr2;
 		System.out.println(iArr3 == iArr2); // true
 	}
+	
+	public void method3() {
+		int [] iArr = new int[5];
+		
+		// 값 초기화를 위한 for문
+		for(int i = 1; i <= iArr.length; i++) {
+			iArr[i - 1] = i;
+		}
+		// [1,2,3,4,5]
+		
+		System.out.println(iArr[4]);
+	}
+	
+	public void method4() {
+		
+		int result = 0;
+		String str = null; // "";
+		int [] arr = null; 
+		
+		//System.out.println(arr[0]);
+		//System.out.println(str.equals(""));
+		//System.out.println(arr.length);
+	}
+	
+	public void method5() {
+		int[] arr = new int[5];
+		
+		/*
+		 *  arr[0] = 2;
+		 *  arr[1] = 4;
+		 *  ...
+		 *  arr[4] = 10;
+		 *  대입을 반복문을 활용하여 작성.
+		 *  
+		 *  반복문을 활용하여 배열에 저장된 값을 출력
+		 *  10 8 6 4 2
+		 *  */
+		int value = 2;
+		for(int i = 0; i<arr.length;i++) {
+			arr[i] = value;
+			value += 2;
+		}
+		
+		for(int i = arr.length - 1; i > -1; i-- ) {
+			System.out.print(arr[i]+" ");
+		}
+		
+		arr[5] = 12;
+		/*
+		 * 배열은 한번 지정한 크기를 변경 할 수 없음.
+		 * => 배열의 크기를 변경하고자 한다면 새로운 배열을 생성 해야 한다.
+		 *  */
+		arr = new int[6];
+		
+		arr = null; // 참조형 변수에 null값을 대입하면, 가비지컬렉터
+		            //가 해당 메모리를 즉시 삭제시켜준다. 
+		//System.out.println(Arrays.toString(arr));
+	}
+	
+	public void method6() {
+		// 배열의 선언, 할당, 초기화
+		int[] arr = new int[3];
+		arr[0] = 1; // 초기화
+		
+		// 배열 선언 및 할당과 동시에 초기화 하는 방법
+		// 1. 
+		int[] arr1 = new int[] { 1 , 2 , 3 , 4 };//[1,2,3,4]
+		
+		// 2. 
+		int[] arr2 = {1,2,3,4}; 
+		
+		// arr1 == arr2
+		System.out.println(arr1);
+		System.out.println(arr2);
+	}
+	
+	public void method7() {
+		
+		// 문자열을 char배열로 변경
+		String str = "wombat";
+		char[] arr = str.toCharArray();//['w','o','m','b','t']
+		
+		char[] arr2 = new char[str.length()];
+		
+		for(int i =0; i<arr2.length; i++) {
+			arr2[i] = str.charAt(i);
+		}
+		
+		System.out.println( Arrays.toString(arr) );
+		System.out.println( Arrays.toString(arr2) );
+	}
+	
+	
+	
+	
+	
 	
 }
 
