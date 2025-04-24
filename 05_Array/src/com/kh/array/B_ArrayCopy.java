@@ -56,7 +56,7 @@ public class B_ArrayCopy {
 	public void method3() {
 		// System.arraycopy(원본 배열, 원본 배열에서 복사를 시작할 인덱스 ,
 		//  복사본 배열, 복사본 배열에서 복사될 시작 인덱스, 복사할 갯수)
-		int [] origin = {1,2,3,4,5,0,0,0,0,0};
+		int [] origin = {1,2,3,4,5};
 		int [] copy = new int[10];
 		
 		//System.arraycopy(origin, 0, copy,0,5);// 1 2 3 4 5 0 0 0 0 0
@@ -65,7 +65,7 @@ public class B_ArrayCopy {
 		//System.arraycopy(origin , 2 , copy, 1, 3);
 		System.arraycopy(origin, 0 , origin , 1, 5);
 				
-		origin[0] = 0;
+		//origin[0] = 0;
 		
 		System.out.println(Arrays.toString(origin));
 		System.out.println(Arrays.toString(copy));

@@ -10,7 +10,7 @@ public class Run {
 		//ba.method5();
 		
 		C_DimensionalArray cd = new C_DimensionalArray();
-		cd.method1();
+		cd.method4();
 	}
 }
 
