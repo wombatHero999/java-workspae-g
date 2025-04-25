@@ -313,17 +313,6 @@ public class ArrayPractice {
 				copy[i] = sc.nextLine();
 			}
 			str = copy;
-		}
-		
-		
-		
-		
-		
-		
+		}		
 	}
-	
-	
-	
-	
-	
 }
