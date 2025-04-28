@@ -3,7 +3,7 @@ package com.kh.chap04_constructor.model.vo;
 public class User {
 	
 	// 필드부
-	private String userId;
+	private String userId = "경민";
 	private int age;
 	private char gender;
 	
@@ -40,8 +40,6 @@ public class User {
 		 this.age = age;
 		 this.gender = gender;
 	 }
-	
-	
 	
 	// 메서드부
 	

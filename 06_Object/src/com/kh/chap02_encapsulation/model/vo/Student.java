@@ -32,7 +32,7 @@ public class Student {
 	// getter메소드
 	// 객체 내부의 필드값을 반환해주는 메소드
 	public String getName() {
-		return name;
+		return this.name;
 	}
 	
 	public int getAge() {
