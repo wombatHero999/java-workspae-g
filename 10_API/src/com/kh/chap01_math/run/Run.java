@@ -4,7 +4,6 @@ public class Run {
 	
 	public static void main(String[] args) {
 		// Math 클래스의 메서드들
-		
 		System.out.println("파이 : "+Math.PI);
 		
 		double num1 = 4.349;
