@@ -50,6 +50,7 @@ public class A_UncheckedException {
 		try {
 			System.out.println("나눗셈 연산 2회차 : " + num1 / num2);
 			
+			
 		} catch(ArithmeticException e) {
 			System.out.println("0으로 나누지 좀 마시죠");
 			e.printStackTrace(); // 발생한 오류를 추적
