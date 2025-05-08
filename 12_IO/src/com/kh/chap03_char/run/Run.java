@@ -10,9 +10,9 @@ public class Run {
 		// xxxReader / xxxWriter
 		FileCharDao dao = new FileCharDao();
 		//dao.fileSave();
-		dao.fileRead();
+		dao.fileRead();		
 	}
-
+	
 }
 
 

@@ -16,6 +16,7 @@ public class FileCharDao {
 			fw.write("또 쉬고싶다..!");
 			fw.write('a');
 			fw.write('민');
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
