@@ -67,6 +67,7 @@ public class Run {
 		list3.add(new Music("someone like you","Adel"));
 		list3.add(new Music("너의번호를누르고","박명수"));
 		list3.add(new Music("벛꽃엔딩","장범준"));
+		//list3.add("안돼");
 		
 		System.out.println(list3);
 		
