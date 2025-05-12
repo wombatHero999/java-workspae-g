@@ -22,11 +22,23 @@ public class HashMapRun <K , V> {
 	
 	public HashMapRun(int capacity) {
 		this.capacity = capacity;
+		table = new Entry[capacity];
 	}
 	
 	public static void main(String[] args) {
 		HashMapRun<String, Snack> hm = new HashMapRun<>(10); // 크기 10 
-		hm.put("다이제", new Snack("초코맛",800));
+		hm.put("다이제", new Snack("초코맛", 1500)); 
+		hm.put("칸초", new Snack("단맛", 600)); 
+		hm.put("새우깡", new Snack("짠맛", 500)); 
+		hm.put("포테이토칩", new Snack("짠맛", 500)); 
+		
+		System.out.println(hm.get("새우깡"));
+		hm.put("새우깡", new Snack("메운맛",700));
+		System.out.println(hm.get("새우깡"));
+		
+		hm.remove("포테이토칩");
+		System.out.println(hm.get("포테이토칩"));
+		System.out.println(hm);
 		
 	}
 	
@@ -61,20 +73,22 @@ public class HashMapRun <K , V> {
 				// "다이제" , "칸초" ,"칸초" => 우연히 hashcode중복으로 충돌이 발생한 경우
 				//  - 다이제가 저장된 entry의 next에 칸초를 저장.
 				
+				// "다이제" , "칸초", "새우깡" 모두 같은 인덱스를 공유하는 경우
+				Entry<K, V> next = table[index];
 				while(true) {
-					if(table[index].key.equals(newEntry.key)) {
-						table[index].value = newEntry.value;
+					if(next.key.equals(newEntry.key)) {
+						next.value = newEntry.value;
 						return;
 					}
 					
-					if(table[index].next == null) {
-						table[index].next = newEntry;		
+					if(next.next == null) {
+						next.next = newEntry;		
 						break;
 					}			
 					//
+					next = table[index].next;
 				}
 			}
-			
 		}
 		
 		size++;
@@ -89,11 +103,54 @@ public class HashMapRun <K , V> {
 	}
 	
 	public V get(K key) {
+		// getIndex함수 호출후 반환값으로 table의 index에 접근  
+		int index = getIndex(key);
+		Entry<K, V> e = table[index];
 		
+		// 접근시 내부의 값이 null이라면 null값 반환
+		if(e == null) {
+			return null;
+		}else {
+			// 객체가 있다면 저장된 객체의 key값과 매개변수로 전달받은 key값 확인 
+			do {
+				if(e.key.equals(key)) {
+					return e.value;
+				}
+				e = e.next;
+			}while(e != null);
+		}
+		return null;
+		// 동일하다면 객체에 저장된 value값 반환. 
+		// 동일하지 않다면 노드드의 next 값을 찾아 다시한번 검사 (next가 존재하지  
+		// 않을때까지 반복). 다음 노드들 중에서 key값이 일치하는 값이 존재한다면  
+		// 노드 내부의 value값 반환. 일치하는 key값이 없었다면 null값 반환
 	}
 	
 	public void remove(K key) {
+		int index = getIndex(key);
+		Entry<K, V> e = table[index];
 		
+		if(e == null) {
+			return;
+		}		
+		Entry<K, V> prev = null;
+		do {
+			if(e.key.equals(key)) {
+				// 첫번째 entry인지 확인
+				if(e == table[index]) {
+					// e.next값이 null이 아니라면 e.next값을 대입
+					table[index] = (e.next != null ? e.next : null);
+				}else {
+					prev.next = e.next;
+				}
+				size--;
+				return;
+			}
+			prev = e;
+			e = e.next;
+		}while(e != null);
+		// 객체가 있다면 저장된 객체의 key값과 매개변수로 전달받은 key값 확인 
+		// 동일하다면 현재 Node삭제.  
 	}
 	
 	public int size() {
@@ -101,9 +158,49 @@ public class HashMapRun <K , V> {
 	}
 	
 	public boolean containsKey(K key) {
+		// getIndex함수 호출후 반환값으로 table의 index에 접근  
+		// 접근시 내부의 값이 null이라면 null값 반환  
+		// 객체가 있다면 저장된 객체의 key값과 매개변수로 전달받은 key값 확인 
+		// 동일하다면 true반환, 일치하지 않는다면 node의 next값을 찾아 일치하는 것을 
+		// 찾을때까지 검사. 일치하는 값을 찾았다면 true/ 찾지 못했다다면 false 반환
+		int index = getIndex(key);
+		Entry<K, V> e = table[index];
 		
+		if( e == null) {
+			return false;
+		}
+		do {
+			if(e.key.equals(key)) {
+				return true;
+			}
+			e = e.next;
+		}while(e != null);
+		
+		return false;		
 	}
 	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append('{');
+		for(Entry e : table) {
+			if(e == null) continue;
+			// {key : value}
+			sb.append("{").append(e.key).append(" : ").append(e.value).append("}").append(",");	
+			
+			Entry next = e.next;
+			do {
+				if(next != null) {
+					sb.append("{").append(next.key).append(" : ").append(next.value).append("}").append(",");	
+					next = next.next;
+				}
+			}while(next != null); // 
+		}
+		//sb.append(Arrays.toString(table));
+		
+		sb.append('}');
+		
+		return sb.toString();
+	}
 	
 }
 
