@@ -76,7 +76,7 @@ public class Run {
 		// ? 의 범위 : Parent, Parent의 자식들.
 		
 		// Child1 c = (Child1) new Parent();
-		// Parent p1 = new Child1();
+		// Child2 p1 = new Child1();
 		
 		//unknown2.setT(new Parent()); // ?범위에 Parent의 자식클래스도 포함되어있으므로, "대입 불가."
 		//unknown2.setT(new Child1()); // ?범위에 Child2도 포함되어있으므로, "대입불가."
