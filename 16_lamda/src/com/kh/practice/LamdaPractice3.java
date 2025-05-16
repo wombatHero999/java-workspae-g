@@ -9,7 +9,18 @@ public class LamdaPractice3 {
         System.out.println(strToLength.apply("lambda")); // 6
 	}
 	
-	interface MyFunction{
-		
+	@FunctionalInterface
+	interface MyFunction<V , B>{
+		B apply(V v);
 	}
 }
+
+
+
+
+
+
+
+
+
+

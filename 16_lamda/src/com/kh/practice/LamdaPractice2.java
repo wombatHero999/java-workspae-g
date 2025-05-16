@@ -9,7 +9,19 @@ public class LamdaPractice2 {
         System.out.println(combiner.operate("hello", "world")); // hello-world
 	}
 	
-	interface Calculator{
-		
+	@FunctionalInterface
+	interface Calculator <V>{ 
+		V operate(V v1, V v2);
 	}
 }
+
+
+
+
+
+
+
+
+
+
+

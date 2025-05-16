@@ -17,6 +17,22 @@ public class LamdaPractice6 {
 		System.out.println(names); // 알파벳 역순 정렬
 	}
 	public static Comparator<String> getComparator(String mode) { 
-	        //코드 구현 
+	    //코드 구현 
+		switch(mode) {
+		case "length" :
+			return (s1, s2) -> s1.length() - s2.length();
+		case "reverse" :
+			return (s1, s2) -> s2.compareTo(s1);
+		default : throw new RuntimeException("제공하지 않는 정렬방식입니다.");
+		}
 	}
 }
+
+
+
+
+
+
+
+
+

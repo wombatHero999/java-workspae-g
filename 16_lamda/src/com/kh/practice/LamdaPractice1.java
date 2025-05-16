@@ -14,8 +14,16 @@ public class LamdaPractice1 {
 		}
 	}
 	
-	interface StringChecker{
-		
+	@FunctionalInterface
+	interface StringChecker {
+		boolean check(String str);
 	}
 
 }
+
+
+
+
+
+
+
